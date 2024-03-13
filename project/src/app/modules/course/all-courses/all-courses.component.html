@@ -1,0 +1,18 @@
+
+   <div class="container">
+    <h2>All Courses</h2>
+    <div class="course-list">
+      <div class="course-item" *ngFor="let course of courses">
+        <div class="course-thumbnail" (click)="onCourseSelected(course)">
+          <img class="course-image" [src]="course.image" alt="{{ course.name }}">
+        </div>
+        <div class="course-details">
+          <h3>{{ course.name }}</h3>
+          <p>Lesson Count: {{ course.lessonCount }}</p>
+          <img src="{{course.learningMode.toString()| learningModeIcon}}" class="learning-mode-icon" alt="Learning Mode Icon">
+          <!-- <button class="view-details-button" routerLink="/courseDetails/{{ course.id }}">View Course Details</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  

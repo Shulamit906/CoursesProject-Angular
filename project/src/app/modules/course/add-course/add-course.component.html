@@ -1,0 +1,72 @@
+
+<form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="name">Course Name:</label>
+        <input type="text" id="name" formControlName="name">
+        <div *ngIf="courseForm.get('name')?.invalid && courseForm.get('name')?.touched" class="error-message">
+            Course name is required
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="categoryId">Category:</label>
+        <select class="form-control" id="categoryId" formControlName="categoryId" required>
+            <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="lessonCount">Lesson Count:</label>
+        <input type="number" id="lessonCount" formControlName="lessonCount">
+        <div *ngIf="courseForm.get('lessonCount')?.invalid && courseForm.get('lessonCount')?.touched"
+            class="error-message">
+            Lesson count is required
+        </div>
+    </div>
+
+    <div>
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" formControlName="startDate">
+        <div *ngIf="courseForm.get('startDate')?.invalid && courseForm.get('startDate')?.touched" class="error-message">
+            Start date is required
+        </div>
+    </div>
+
+    <div formArrayName="syllabus">
+        <label for="syllabus">Syllabus: </label>
+        <div *ngFor="let syllabusControl of syllabusControls.controls; let i = index;">
+            <!-- <input type="text" [formControlName]="i" (input)="onInput()"> -->
+            <input type="text" [formControlName]="i" (change)="onInputChange()">
+
+            <!-- <button type="button" (click)="removeSyllabus(i)">Remove</button> -->
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="learningMode">Learning Mode</label>
+        <select class="form-control" id="learningMode" formControlName="learningMode">
+            <option value="1">Frontal</option>
+            <option value="2">Zoom</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="lecturerId">Lecturer:</label>
+        <select class="form-control" id="lecturerId" formControlName="lecturerId" required>
+            <option *ngFor="let lecturer of lecturers" [value]="lecturer.id">{{ lecturer.name }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" formControlName="image">
+        <div *ngIf="courseForm.get('image')?.invalid && courseForm.get('image')?.touched" class="error-message">
+            Image URL is required
+        </div>
+    </div>
+
+    <div *ngIf="course">
+        <button type="button" (click)="fetchf(course)">ביטול</button>
+    </div>
+
+    <button type="submit" [disabled]="courseForm.invalid">שמירה</button>
+</form>

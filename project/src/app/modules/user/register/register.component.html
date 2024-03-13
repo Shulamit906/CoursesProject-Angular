@@ -1,0 +1,54 @@
+<!-- app-registration.component.html -->
+<div class="container">
+
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="userForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <label for="name">User name:</label>
+          <input type="text" class="form-control" id="name" formControlName="name">
+          <ng-container *ngIf="userForm.controls['name'].errors">
+            <div class="alert alert-danger" *ngIf="userForm.controls['name'].errors['required']">This field is required
+            </div>
+            <div class="alert alert-danger" *ngIf="userForm.controls['name'].errors['minlength']">This field is must be
+              at least 3 chars</div>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <label for="address">User address:</label>
+          <input type="text" class="form-control" id="address" formControlName="address">
+          <ng-container *ngIf="userForm.controls['address'].errors">
+            <div class="alert alert-danger" *ngIf="userForm.controls['address'].errors['required']">This field is required
+            </div>
+            <div class="alert alert-danger" *ngIf="userForm.controls['address'].errors['minlength']">This field is must be
+              at least 3 chars</div>
+          </ng-container>
+        </div>
+
+        <div class="form-group">
+          <label for="email">User email:</label>
+          <input type="text" class="form-control" id="email" formControlName="email">
+          <ng-container *ngIf="userForm.controls['email'].errors">
+            <div class="alert alert-danger" *ngIf="userForm.controls['email'].errors['required']">This field is required
+            </div>
+            <div class="alert alert-danger" *ngIf="userForm.controls['email'].errors['email']">This email is not
+              validator</div>
+          </ng-container>
+        </div>
+
+        <div class="form-group">
+          <label for="password">User password:</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <ng-container *ngIf="userForm.controls['password'].errors">
+            <div class="alert alert-danger" *ngIf="userForm.controls['password'].errors['required']">This field is
+              required</div>
+          </ng-container>
+        </div>
+
+        <!-- <button type="button" class="btn btn-primary" (click)="populateForm()">Populate Form</button> -->
+        <button type="submit" class="btn btn-primary">שליחה</button>
+      </form>
+    </div>
+  </div>
+
+</div>

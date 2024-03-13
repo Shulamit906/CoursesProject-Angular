@@ -1,0 +1,61 @@
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.course-item {
+  width: calc(50% - 10px);
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-thumbnail {
+  height: 250px; /* קבע את הגובה של התמונה של הקורס */
+  overflow: hidden;
+}
+
+.course-thumbnail img {
+  width: 100%; /* הרחב את התמונה למלוא רוחב הקונטיינר */
+  height: auto; /* השאר את יחס הגובה של התמונה כפי שהוא עבור תמונות מותאמות יחסית */
+}
+
+.learning-mode-icon {
+  width: 50px; /* הגדר את גודל התמונה שמייצגת את מצב הלמידה */
+  height: auto; /* תשאיר את היחס בין גובה ורוחב כמו שהוא */
+}
+
+.course-details {
+  padding: 20px;
+}
+
+.course-details h3 {
+  margin-top: 0;
+}
+
+.course-details p {
+  margin: 10px 0;
+}
+
+.view-details-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-details-button:hover {
+  background-color: #0056b3;
+}

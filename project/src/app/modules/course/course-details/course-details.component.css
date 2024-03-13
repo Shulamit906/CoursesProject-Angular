@@ -1,0 +1,32 @@
+.course-details-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .course-header {
+    margin-bottom: 20px;
+  }
+  
+  .course-header h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .course-content {
+    margin-top: 20px;
+  }
+  
+  .course-content p {
+    margin-bottom: 8px;
+  }
+  
+  .course-image {
+    display: block;
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+  }
+  

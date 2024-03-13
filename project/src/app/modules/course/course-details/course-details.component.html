@@ -1,0 +1,48 @@
+<!-- 
+
+<div *ngIf="course">
+  <div class="course-details-container">
+    <div class="course-header">
+      <h2>{{ course.name }}</h2>
+      <p>Category: {{ course.categoryId }}</p>
+      <p>Lesson Count: {{ course.lessonCount }}</p>
+      <p>Start Date: {{ course.startDate | date:'shortDate' }}</p>
+      <p>Learning Mode: {{ course.learningMode }}</p>
+      <p>Lecturer ID: {{ course.lecturerId }}</p>
+    </div>
+    <div class="course-content">
+      <p>Syllabus:</p>
+      <ul>
+        <li *ngFor="let syllabusItem of course.syllabus">{{ syllabusItem }}</li>
+      </ul>
+      <img class="course-image" [src]="course.image" alt="Course Image">
+    </div>
+    <div *ngIf="isLecturer()">
+      <button (click)="editCourse(course.id)">Edit</button>
+    </div>
+  </div>
+</div> -->
+
+<div *ngIf="course">
+  <div class="course-details-container">
+    <div class="course-header">
+      <h2>{{ course.name }}</h2>
+      <p>Category: {{ getCategoryName(course.categoryId) }}</p>
+      <p>Lesson Count: {{ course.lessonCount }}</p>
+      <p>Start Date: {{ course.startDate | date:'shortDate' }}</p>
+      <p>Learning Mode: </p>
+      <img src="{{course.learningMode.toString()| learningModeIcon}}" class="learning-mode-icon" alt="Learning Mode Icon">
+      <p>Lecturer: {{ getLecturerName(course.lecturerId) }}</p>
+    </div>
+    <div class="course-content">
+      <p>Syllabus:</p>
+      <ul>
+        <li *ngFor="let syllabusItem of course.syllabus">{{ syllabusItem }}</li>
+      </ul>
+      <img class="course-image" [src]="course.image" alt="Course Image">
+    </div>
+    <div *ngIf="isLecturer()">
+      <button (click)="editCourse(course.id)">Edit</button>
+    </div>
+  </div>
+</div>
