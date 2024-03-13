@@ -6,9 +6,10 @@ import { AllCoursesComponent } from './modules/course/all-courses/all-courses.co
 import { LogoutComponent } from './modules/user/logout/logout.component';
 import { AddCourseComponent } from './modules/course/add-course/add-course.component';
 import { CourseDetailsComponent } from './modules/course/course-details/course-details.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: HomePageComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "logout", component: LogoutComponent },

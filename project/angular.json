@@ -60,7 +60,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "proxyConfig": "src/proxy.config.json"
-           },
+        },
           "configurations": {
             "production": {
               "browserTarget": "project:build:production"
@@ -90,8 +90,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -100,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "8b3e14b7-b279-4e0f-8a5b-6c89769e5835"
+    "analytics": "c9cac8f9-78dc-421f-971c-ef4416eb533e"
   }
 }

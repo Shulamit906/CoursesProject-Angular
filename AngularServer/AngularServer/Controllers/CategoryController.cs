@@ -10,9 +10,10 @@ namespace AngularServer.Controllers
     {
         public static List<Category> categories = new List<Category>
         {
-            new Category("Art","image.path"),
-            new Category("Sport","image.path"),
-            new Category("Languages","image.path")
+            new Category("Art","../../../../assets/icons/art.jpg"),
+            new Category("Sport","../../../../assets/icons/sports.png"),
+            new Category("Languages","../../../../assets/icons/Languages.png")
+
         };
         // GET: api/<CategoryController>
         [HttpGet]

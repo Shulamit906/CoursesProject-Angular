@@ -1,16 +1,34 @@
 
    <div class="container">
     <h2>All Courses</h2>
+    <div class="filters">
+      <label>Filter by Category:</label>
+      <select [(ngModel)]="selectedCategory" (change)="applyFilter()">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      </select>
+  
+      <label>Filter by Learning Mode:</label>
+      <select [(ngModel)]="selectedLearningMode" (change)="applyFilter()">
+        <option value="">All Learning Modes</option>
+        <option value="1">Frontal</option>
+        <option value="2">Zoom</option>
+      </select>
+    </div>
+  
+    <label>Filter by Course Name:</label>
+    <input type="text" [(ngModel)]="searchCourseName" (input)="applyFilter()">
+    
+
     <div class="course-list">
-      <div class="course-item" *ngFor="let course of courses">
-        <div class="course-thumbnail" (click)="onCourseSelected(course)">
+      <div class="course-item" *ngFor="let course of courses" (click)="onCourseSelected(course)">
+        <div class="course-thumbnail">
           <img class="course-image" [src]="course.image" alt="{{ course.name }}">
         </div>
         <div class="course-details">
           <h3>{{ course.name }}</h3>
           <p>Lesson Count: {{ course.lessonCount }}</p>
           <img src="{{course.learningMode.toString()| learningModeIcon}}" class="learning-mode-icon" alt="Learning Mode Icon">
-          <!-- <button class="view-details-button" routerLink="/courseDetails/{{ course.id }}">View Course Details</button> -->
         </div>
       </div>
     </div>

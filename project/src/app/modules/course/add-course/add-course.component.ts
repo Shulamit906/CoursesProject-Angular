@@ -46,16 +46,43 @@ export class AddCourseComponent implements OnInit {
     });
   }
 
+  // public fetchf(course: Course): void {
+  //   this.courseForm.patchValue({
+  //     name: course.name,
+  //     categoryId: course.categoryId,
+  //     lessonCount: course.lessonCount,
+  //     startDate: course.startDate,
+  //     syllabus: course.syllabus,
+  //     learningMode: course.learningMode,
+  //     lecturerId: course.lecturerId,
+  //     image: course.image
+  //   });
+  // }
+
   public fetchf(course: Course): void {
     this.courseForm.patchValue({
       name: course.name,
       categoryId: course.categoryId,
       lessonCount: course.lessonCount,
       startDate: course.startDate,
-      syllabus: course.syllabus,
       learningMode: course.learningMode,
       lecturerId: course.lecturerId,
       image: course.image
+    });
+
+    // Clear existing syllabus controls
+    while (this.syllabusControls.length !== 0) {
+      this.removeSyllabus(0);
+    }
+
+    // Populate syllabus controls with the syllabus of the course
+    course.syllabus.forEach(syllabusItem => {
+      this.addSyllabus();
+    });
+
+    // Set the value of each syllabus control
+    course.syllabus.forEach((syllabusItem, index) => {
+      this.syllabusControls.at(index).setValue(syllabusItem);
     });
   }
 
@@ -63,7 +90,7 @@ export class AddCourseComponent implements OnInit {
     this.courseForm = this.formBuilder.group({
       name: ['', Validators.required],
       categoryId: ['', Validators.required],
-      lessonCount: ['', Validators.required],
+      lessonCount: ['', [Validators.required, Validators.min(3), Validators.pattern(/^[1-9]\d*$/)]],
       startDate: ['', Validators.required],
       syllabus: this.formBuilder.array([]),
       learningMode: ['', Validators.required],
@@ -72,35 +99,6 @@ export class AddCourseComponent implements OnInit {
     });
   }
 
-  // onSubmit(): void {
-  //   if (this.courseForm.invalid) {
-  //     return;
-  //   }
-  //   const formData = this.courseForm.value;
-  //   formData.learningMode = parseInt(formData.learningMode);
-  //   const newCourse = new Course(
-  //     formData.name,
-  //     formData.categoryId,
-  //     formData.lessonCount,
-  //     new Date(formData.startDate),
-  //     formData.syllabus,
-  //     formData.learningMode as LearningMode,
-  //     formData.lecturerId,
-  //     formData.image
-  //   );
-
-  //   if (this.course) {
-  //     this.courseService.updateCourse(newCourse, this.courseId).subscribe(() => {
-  //       this.router.navigate(['/courseDetails', this.courseId]);
-  //     })
-  //   }
-  //   else {
-  //     // Call service method to add new course
-  //     this.courseService.addCourse(newCourse).subscribe(() => {
-  //       this.router.navigate(['/allCourses']);
-  //     });
-  //   }
-  // }
   onSubmit(): void {
     if (this.courseForm.invalid) {
       return;
@@ -152,17 +150,6 @@ export class AddCourseComponent implements OnInit {
     this.syllabusControls.removeAt(index);
   }
 
-
-  // onInput(): void {
-  //   const lastSyllabusIndex = this.syllabusControls.length - 1;
-  //   const lastSyllabus = this.syllabusControls.at(lastSyllabusIndex).value;
-
-  //   if (lastSyllabus.trim() === '') {
-  //     this.removeSyllabus(lastSyllabusIndex);
-  //   } else {
-  //     this.addSyllabus();
-  //   }
-  // }
   onInputChange(): void {
     const lastSyllabusIndex = this.syllabusControls.length - 1;
     const lastSyllabus = this.syllabusControls.at(lastSyllabusIndex).value;

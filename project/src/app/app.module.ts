@@ -5,12 +5,13 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { UserModule } from './modules/user/user.module';
 import { CourseModule } from './modules/course/course.module';
-import { LearningModeIconPipe } from './modules/course/learning-mode-icon.pipe';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomePageComponent
 
   ],
   imports: [
@@ -18,8 +19,8 @@ import { LearningModeIconPipe } from './modules/course/learning-mode-icon.pipe';
     AppRoutingModule,
     FormsModule,
     UserModule,
-    CourseModule
-    // NgbModule
+    CourseModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
