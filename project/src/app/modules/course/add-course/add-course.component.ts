@@ -17,7 +17,6 @@ export class AddCourseComponent implements OnInit {
   courseForm!: FormGroup;
   categories!: Category[];
   lecturers!: Lecturer[];
-  // editMode = false;
   courseId!: number
   course!: Course;
 
@@ -37,7 +36,6 @@ export class AddCourseComponent implements OnInit {
       this.courseId = params['id'];
       console.log("courseId", this.courseId)
       if (this.courseId) {
-        // this.editMode = true;
         this.courseService.getByIdCourse(this.courseId).subscribe(course => {
           this.fetchf(course);
           this.course = course;
@@ -46,18 +44,6 @@ export class AddCourseComponent implements OnInit {
     });
   }
 
-  // public fetchf(course: Course): void {
-  //   this.courseForm.patchValue({
-  //     name: course.name,
-  //     categoryId: course.categoryId,
-  //     lessonCount: course.lessonCount,
-  //     startDate: course.startDate,
-  //     syllabus: course.syllabus,
-  //     learningMode: course.learningMode,
-  //     lecturerId: course.lecturerId,
-  //     image: course.image
-  //   });
-  // }
 
   public fetchf(course: Course): void {
     this.courseForm.patchValue({
@@ -70,17 +56,14 @@ export class AddCourseComponent implements OnInit {
       image: course.image
     });
 
-    // Clear existing syllabus controls
     while (this.syllabusControls.length !== 0) {
       this.removeSyllabus(0);
     }
 
-    // Populate syllabus controls with the syllabus of the course
     course.syllabus.forEach(syllabusItem => {
       this.addSyllabus();
     });
 
-    // Set the value of each syllabus control
     course.syllabus.forEach((syllabusItem, index) => {
       this.syllabusControls.at(index).setValue(syllabusItem);
     });
@@ -104,7 +87,6 @@ export class AddCourseComponent implements OnInit {
       return;
     }
 
-    // Check if the last syllabus item is empty and remove it if it is
     const lastSyllabusIndex = this.syllabusControls.length - 1;
     const lastSyllabusValue = this.syllabusControls.at(lastSyllabusIndex).value;
     if (lastSyllabusValue.trim() === '') {
@@ -130,7 +112,6 @@ export class AddCourseComponent implements OnInit {
       })
     }
     else {
-      // Call service method to add new course
       this.courseService.addCourse(newCourse).subscribe(() => {
         this.router.navigate(['/allCourses']);
       });
@@ -150,14 +131,20 @@ export class AddCourseComponent implements OnInit {
     this.syllabusControls.removeAt(index);
   }
 
+
   onInputChange(): void {
     const lastSyllabusIndex = this.syllabusControls.length - 1;
     const lastSyllabus = this.syllabusControls.at(lastSyllabusIndex).value;
 
-    if (lastSyllabus.trim() === '') {
-      this.removeSyllabus(lastSyllabusIndex);
-    } else {
+    if (lastSyllabus.trim() !== '') {
       this.addSyllabus();
     }
-  }
+
+    if (lastSyllabus.trim() === '' && this.syllabusControls.length > 1) {
+      this.removeSyllabus(lastSyllabusIndex);
+    }
+}
+
+
+
 }

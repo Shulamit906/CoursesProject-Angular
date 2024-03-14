@@ -4,7 +4,7 @@ import { CourseService } from '../course.service';
 import { Course } from '../course.model';
 import { Router } from '@angular/router';
 import { LearningMode } from '../course.model';
-import { Category } from '../category.model'; // Assuming you have a Category model and service
+import { Category } from '../category.model'; 
 
 @Component({
   selector: 'app-all-courses',
@@ -58,7 +58,6 @@ export class AllCoursesComponent implements OnInit {
   }
 
   applyFilter(): void {
-    // Reload courses after applying filter
     this.loadCourses();
   }
 

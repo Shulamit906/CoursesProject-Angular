@@ -1,0 +1,28 @@
+
+
+h2 {
+    margin-bottom: 20px; 
+}
+
+.form-container {
+    width: 300px; 
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f0f0; 
+}
+
+.form-container {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 30px;
+    border: 2px solid #d25719;
+    border-radius: 8px;
+}

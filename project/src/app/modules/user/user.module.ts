@@ -9,11 +9,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { UserService } from "./user.service";
 import { LogoutComponent } from "./logout/logout.component";
+import { MatInputModule } from '@angular/material/input'
 
 
 @NgModule({
     declarations: [RegisterComponent, LoginComponent,LogoutComponent],
-    imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+    imports: [CommonModule, BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, ReactiveFormsModule,MatInputModule],
     providers: [UserService],
     exports: [RegisterComponent,LoginComponent,LogoutComponent]
 })

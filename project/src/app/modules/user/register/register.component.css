@@ -1,0 +1,26 @@
+
+   .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    width: 300px;
+    padding: 20px;
+    border: 2px solid #d25719;
+    border-radius: 8px;
+  }
+  
+  .form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  

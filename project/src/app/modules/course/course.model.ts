@@ -15,7 +15,6 @@ export class Course {
     image: string;
 
     constructor(
-      //  id: number | undefined,
         name: string,
         categoryId: number,
         lessonCount: number,

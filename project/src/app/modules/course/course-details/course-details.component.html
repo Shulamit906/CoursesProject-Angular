@@ -1,50 +1,29 @@
-<div *ngIf="course">
-  <div class="course-details-container">
-    <div class="course-header">
-      <h2>{{ course.name }}</h2>
-      <p>{{ getCategoryName(course.categoryId) }}</p>
 
-      <div class="details-item">
-        <img src={{getCategoryImg()}} class="img-fluid rounded-circle" style="width: 50px; height: 50px;">
-      </div>
-
-      <p>Lesson Count: {{ course.lessonCount }}</p>
-     <p [ngClass]="{'upcoming-week': isStartInNextWeek(course.startDate)}">Start Date: {{ course.startDate |
-        date:'shortDate' }}</p>
-      <p>Learning Mode: </p>
-      <img src="{{course.learningMode.toString()| learningModeIcon}}" class="learning-mode-icon"
-        alt="Learning Mode Icon">
-      <p>Lecturer: {{ getLecturerName(course.lecturerId) }}</p>
+<div *ngIf="course" class="course-details-container">
+  <div class="course-header">
+    <h2>{{ course.name }}</h2>
+    <p>{{ getCategoryName(course.categoryId) }}</p>
+    <div class="details-item">
+      <img src="{{ getCategoryImg() }}" class="category-icon" alt="Category Image">
     </div>
-    <!-- <div class="course-content">
-      <p>Syllabus:</p>
-      <ul>
-        <li *ngFor="let syllabusItem of course.syllabus">{{ syllabusItem }}</li>
-      </ul>
-      <img class="course-image" [src]="course.image" alt="Course Image">
-    </div> -->
-    <div class="course-content">
-      <p>Syllabus:</p>
-      
-      <ul>
-        <li *ngFor="let syllabusItem of course.syllabus">
-          <!-- <img src="../../../../assets/icons/vi.png" class="syllabus-icon" alt="Syllabus Icon"> -->
-          <span class="custom-icon"></span> {{ syllabusItem }}
-          <!-- {{ syllabusItem }} -->
-        </li>
-      </ul>
-      <!-- <ul>
-        <li class="details-item" *ngFor="let syllabusItem of course.syllabus">
-          <mat-icon>check circle</mat-icon> {{ syllabusItem }}
-        </li>
-      </ul> -->
-
-
-      <img class="course-image" [src]="course.image" alt="Course Image">
+    <p>Lesson Count: {{ course.lessonCount }}</p>
+    <p [ngClass]="{'upcoming-week': isStartInNextWeek(course.startDate)}">Start Date: {{ course.startDate | date:'shortDate' }}</p>
+    <div class="learning-mode">
+      <p>Learning Mode:</p>
+      <img src="{{ course.learningMode.toString() | learningModeIcon }}" class="learning-mode-icon" alt="Learning Mode Icon">
     </div>
-    
-    <div *ngIf="isLecturer()">
-      <button (click)="editCourse(course.id)">Edit</button>
-    </div>
+    <p>Lecturer: {{ getLecturerName(course.lecturerId) }}</p>
+  </div>
+  <div class="course-content">
+    <p>Syllabus:</p>
+    <ul>
+      <li *ngFor="let syllabusItem of course.syllabus">
+        <span class="custom-icon"></span> {{ syllabusItem }}
+      </li>
+    </ul>
+    <img class="course-image" [src]="course.image" alt="Course Image">
+  </div>
+  <div *ngIf="isLecturer()">
+    <button (click)="editCourse(course.id)">Edit</button>
   </div>
 </div>

@@ -21,15 +21,6 @@ export class UserService {
         return this._http.post<any>("api/Users", user)
     }
 
-    // updateStudent(student: User): Observable<boolean> {
-    //     console.log("aaaaa", student);
-    //     student.isActive = Boolean(student.isActive);
-    //     return this._http.put<boolean>(`api/Students/${student.id}`, student);
-    // }
-    // deleteStudent(id: number): Observable<boolean> {
-    //     return this._http.delete<boolean>("api/Students/" + id);
-    // }
-
     getLecturer(): Observable<Lecturer[]> {
         return this._http.get<Lecturer[]>("/api/Lecturer")
     }

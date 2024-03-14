@@ -23,10 +23,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   login(): void {
-    // const userExists = this.checkIfUserExists();
-    // const correctPassword = this.checkPassword(this.username, this.password);
-    // ////לבדוק האם מיותר....
-    //const user = this.users.find(x => x.name.toLowerCase() == this.username.toLowerCase());
+    
     var user: User|undefined;
     var lecturer: Lecturer|undefined;
     if (!this.isLecturer) {
@@ -63,17 +60,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-  // private checkIfUserExists(): boolean {
-  //   const user = this.users.find(x => x.name.toLowerCase() == this.username.toLowerCase());
-  //   if (user)
-  //     return true
-  //   return false
-  // }
-
-  // private checkPassword(username: string, password: string): boolean {
-  //   const user = this.users.find(x => x.name.toLowerCase() == username.toLowerCase());
-  //   return password === user?.password;
-  // }
 
   ngOnInit(): void {
 

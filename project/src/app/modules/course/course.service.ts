@@ -21,14 +21,10 @@ export class CourseService {
     }
 
     addCourse(course: Course): Observable<any> {
-        console.log("hhhhhhhhhhhhhhhhhh",course)
-        
         return this._http.post<any>("api/Course", course)
     }
     
     updateCourse(course: Course,id?:number): Observable<boolean> {
-        console.log("hhhhhhhhhhhhhhhhhh",id)
-        console.log("vvvvvv",course);
         return this._http.put<boolean>(`api/Course/${id}`, course);
 
     }
