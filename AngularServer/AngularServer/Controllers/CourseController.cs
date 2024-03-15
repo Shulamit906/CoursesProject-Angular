@@ -10,11 +10,12 @@ namespace AngularServer.Controllers
     {
         public static List<Course> courses = new List<Course>
         {
-            new Course("English", 3,10,new DateTime(), new string[] { "aaa","bbb" }, LearningMode.FRONTAL,1, "../../../../assets/English.jpg"),
-            new Course("French", 3,10, new DateTime(), new string[] { "bbb" }, LearningMode.ZOOM, 2, "../../../../assets/French.jpg" ),
-            new Course("basketball",2,15, new DateTime(), new string[] { "ccc" }, LearningMode.FRONTAL, 3, "../../../../assets/basketball.jpg" ),
-            new Course("music", 1,18, new DateTime(), new string[] { "ddd" }, LearningMode.ZOOM, 1,"../../../../assets/music.jpg" ),
-            new Course("Drawing", 1,8, new DateTime(), new string[] { "ddd" }, LearningMode.FRONTAL, 1,"../../../../assets/Drawing.jpg" )
+            new Course("English", 3,10,new DateTime(), new string[] { "הווה פשוט", "הווה ממושך" }, LearningMode.FRONTAL,1, "../../../../assets/English.jpg"),
+            new Course("French", 3,10, new DateTime(), new string[] { "אוצר מילים" }, LearningMode.ZOOM, 2, "../../../../assets/French.jpg" ),
+            new Course("basketball",2,15, new DateTime(), new string[] { "אימון בסיס" }, LearningMode.FRONTAL, 3, "../../../../assets/basketball.jpg" ),
+            new Course("music", 1,18, new DateTime(), new string[] { "קריאה וכתיבת תווים" ,"אקורדים בסיסיים"}, LearningMode.ZOOM, 1,"../../../../assets/music.jpg" ),
+            new Course("Drawing", 1,8, new DateTime(), new string[] { "איור דמויות" }, LearningMode.FRONTAL, 1,"../../../../assets/Drawing.jpg" ),
+            new Course("Math", 3,8, new DateTime(), new string[] { "תורת הקבוצות","בדידה","סטטיסטיקה" }, LearningMode.FRONTAL, 2,"../../../../assets/Math.jpg" )
 
         };
         // GET: api/<CourseController>
